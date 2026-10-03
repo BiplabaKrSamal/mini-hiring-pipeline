@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hiring pipeline</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Hiring pipeline</h1>
+    <input id="q" type="search" placeholder="Search a name, a stage or a time" aria-label="Search candidates"
+           spellcheck="false" autocomplete="off" maxlength="300">
+    <button id="add-open" class="primary" type="button">Add candidate</button>
+    <div id="examples" class="examples"></div>
+    <p id="demo" class="demo" hidden>Demo: data is kept in temporary storage and resets when the server restarts.</p>
+  </header>
+
+  <main>
+    <section id="results" aria-live="polite" hidden></section>
+    <section id="board" class="board" aria-label="Pipeline"></section>
+  </main>
+
+  <dialog id="detail" aria-label="Candidate"></dialog>
+
+  <dialog id="move" aria-labelledby="move-title">
+    <form id="move-form">
+      <h2 id="move-title"></h2>
+      <p id="move-text" class="muted"></p>
+      <label for="move-note">Note (optional)</label>
+      <textarea id="move-note" rows="3" maxlength="500"></textarea>
+      <p id="move-error" class="error" role="alert" hidden></p>
+      <div class="buttons">
+        <button type="button" class="ghost" data-close>Cancel</button>
+        <button type="submit" id="move-confirm" class="primary"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="add" aria-labelledby="add-title">
+    <form id="add-form">
+      <h2 id="add-title">Add candidate</h2>
+      <label for="add-name">Name</label>
+      <input id="add-name" required maxlength="120" autocomplete="off" autofocus>
+      <p id="add-error" class="error" role="alert" hidden></p>
+      <div class="buttons">
+        <button type="button" class="ghost" data-close>Cancel</button>
+        <button type="submit" class="primary">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
